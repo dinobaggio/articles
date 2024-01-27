@@ -199,5 +199,3 @@ Halo! Selamat datang di aplikasi baris perintah.
 ## **Kesimpulan**
 
 Dengan menggunakan Cobra, Anda dapat dengan mudah membuat aplikasi baris perintah yang terstruktur dan mudah di-maintain. Pustaka ini menyediakan banyak fitur tambahan seperti penanganan opsi baris perintah, validasi input, dan dokumentasi otomatis. Jadi, mulailah mengintegrasikan Cobra dalam proyek Golang Anda untuk membangun aplikasi baris perintah yang kuat dan bersih.
-
-Penasaran saya buat aplikasi cobra seperti apa ? boleh di check repo github saya di `starter-go-gin`
