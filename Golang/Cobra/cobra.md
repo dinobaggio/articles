@@ -1,10 +1,10 @@
 ## **Cara menggunakan cobra pada golang & membangun aplikasi basis command line**
 
-Cobra adalah sebuah library di Golang yang digunakan untuk membuat aplikasi baris perintah (command-line applications) dengan fitur-fitur yang kuat dan ekstensibel. Dengan Cobra, Anda dapat dengan mudah membuat perintah, sub-perintah, dan opsi pada aplikasi baris perintah Golang Anda. Dalam artikel ini, kita akan membahas langkah-langkah dasar dalam menggunakan Cobra untuk mengembangkan aplikasi baris perintah.
+Cobra adalah sebuah library di Golang yang digunakan untuk membuat aplikasi command line (command-line applications) dengan fitur-fitur yang kuat dan ekstensibel. Dengan Cobra, Anda dapat dengan mudah membuat perintah, sub-perintah, dan opsi pada aplikasi command line Golang Anda. Dalam artikel ini, kita akan membahas langkah-langkah dasar dalam menggunakan Cobra untuk mengembangkan aplikasi command line.
 
 ## **Langkah 1: Instalasi Cobra**
 
-Langkah pertama adalah menginstal pustaka Cobra. Anda dapat melakukannya dengan menjalankan perintah:
+Langkah pertama adalah menginstal library Cobra. Anda dapat melakukannya dengan menjalankan perintah:
 
 ```bash
 go get -u github.com/spf13/cobra/cobra
@@ -48,11 +48,11 @@ Gunakan fungsi `cobra.Command` untuk membuat perintah utama:
 ```go
 var rootCmd = &cobra.Command{
   Use:   "cobra-app",
-  Short: "Aplikasi baris perintah sederhana dengan Cobra",
-  Long:  `Ini adalah contoh aplikasi baris perintah sederhana yang dikembangkan dengan menggunakan Cobra di Golang.`,
+  Short: "Aplikasi command line sederhana dengan Cobra",
+  Long:  `Ini adalah contoh aplikasi command line sederhana yang dikembangkan dengan menggunakan Cobra di Golang.`,
   Run: func(cmd *cobra.Command, args []string) {
     // Kode yang akan dijalankan ketika perintah utama dijalankan
-    fmt.Println("Halo dari aplikasi baris perintah!")
+    fmt.Println("Halo dari aplikasi command line!")
   },
 }
 ```
@@ -81,11 +81,11 @@ import (
 
 var rootCmd = &cobra.Command{
   Use:   "cobra-app",
-  Short: "Aplikasi baris perintah sederhana dengan Cobra",
-  Long:  `Ini adalah contoh aplikasi baris perintah sederhana yang dikembangkan dengan menggunakan Cobra di Golang.`,
+  Short: "Aplikasi command line sederhana dengan Cobra",
+  Long:  `Ini adalah contoh aplikasi command line sederhana yang dikembangkan dengan menggunakan Cobra di Golang.`,
   Run: func(cmd *cobra.Command, args []string) {
     // Kode yang akan dijalankan ketika perintah utama dijalankan
-    fmt.Println("Halo dari aplikasi baris perintah!")
+    fmt.Println("Halo dari aplikasi command line!")
   },
 }
 
@@ -120,7 +120,7 @@ var greetCmd = &cobra.Command{
   Use:   "greet",
   Short: "Sapa pengguna",
   Run: func(cmd *cobra.Command, args []string) {
-    fmt.Println("Halo! Selamat datang di aplikasi baris perintah.")
+    fmt.Println("Halo! Selamat datang di aplikasi command line.")
   },
 }
 ```
@@ -151,7 +151,7 @@ var greetCmd = &cobra.Command{
   Use:   "greet",
   Short: "Sapa pengguna",
   Run: func(cmd *cobra.Command, args []string) {
-    fmt.Println("Halo! Selamat datang di aplikasi baris perintah.")
+    fmt.Println("Halo! Selamat datang di aplikasi command line.")
   },
 }
 
@@ -183,7 +183,7 @@ go run .
 ```
 
 ```
-Halo dari aplikasi baris perintah!
+Halo dari aplikasi command line!
 ```
 
 dan 
@@ -193,9 +193,9 @@ go run . greet
 ```
 
 ```
-Halo! Selamat datang di aplikasi baris perintah.
+Halo! Selamat datang di aplikasi command line.
 ```
 
 ## **Kesimpulan**
 
-Dengan menggunakan Cobra, Anda dapat dengan mudah membuat aplikasi baris perintah yang terstruktur dan mudah di-maintain. Pustaka ini menyediakan banyak fitur tambahan seperti penanganan opsi baris perintah, validasi input, dan dokumentasi otomatis. Jadi, mulailah mengintegrasikan Cobra dalam proyek Golang Anda untuk membangun aplikasi baris perintah yang kuat dan bersih.
+Dengan menggunakan Cobra, Anda dapat dengan mudah membuat aplikasi command line yang terstruktur dan mudah di-maintain. Library ini menyediakan banyak fitur tambahan seperti penanganan sub command, validasi input, dan dokumentasi otomatis. Jadi, mulailah mengintegrasikan Cobra dalam proyek Golang Anda untuk membangun aplikasi command line yang kuat dan bersih.
