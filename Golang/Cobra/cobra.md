@@ -1,4 +1,4 @@
-# **Cara menggunakan cobra pada golang & membangun aplikasi basis command line**
+## **Cara menggunakan cobra pada golang & membangun aplikasi basis command line**
 
 Cobra adalah sebuah library di Golang yang digunakan untuk membuat aplikasi baris perintah (command-line applications) dengan fitur-fitur yang kuat dan ekstensibel. Dengan Cobra, Anda dapat dengan mudah membuat perintah, sub-perintah, dan opsi pada aplikasi baris perintah Golang Anda. Dalam artikel ini, kita akan membahas langkah-langkah dasar dalam menggunakan Cobra untuk mengembangkan aplikasi baris perintah.
 

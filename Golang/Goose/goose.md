@@ -1,2 +1,2 @@
-# Cara membuat migrations dengan goose pada golang
+## **Cara membuat migrations dengan goose pada golang**
 
