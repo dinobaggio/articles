@@ -77,7 +77,7 @@ gin-cobra
 
 ## **Langkah 3: Membuat Aplikasi Web Gin**
 
-selanjutnya pada file `bin/app.go` buatlah sebuah code untuk menjalankan aplikasi web Gin
+selanjutnya pada file `bin/app.go` copy code dibawah ini, script ini nantinya bertujuan untuk menjalankan aplikasi server web Gin
 
 ```go
 package bin
@@ -167,6 +167,17 @@ func Execute() {
 		os.Exit(1)
 	}
 }
+```
+
+selanjutnya buatlah file `serve.go` di dalam file ini kita akan membuat sebuah script untuk menjalankan aplikasi web server yang telah kita buat sebelumnya pada file `bin/app.go`
+
+```bash
+cd cmd \
+	touch serve.go
+```
+
+copy code dibawah ini kedalam file `cmd/serve.go`:
+```go
 ```
 
 ## **Kesimpulan**
