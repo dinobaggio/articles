@@ -1,12 +1,12 @@
 # **Cara membuat migrations dengan Goose pada Golang**
 
-Migrations adalah salah satu aspek yang penting dalam pengembangan perangkat lunak. Ini memungkinkan developer untuk mengelola perubahan struktural dalam database, seperti menambahkan kolom baru, mengubah nama tabel, atau membuat indeks baru dengan cara yang terkelola dan dapat direplikasi dengan mudah.
+Migration adalah salah satu aspek yang penting dalam pengembangan perangkat lunak. Ini memungkinkan developer untuk mengelola perubahan struktural dalam database, seperti menambahkan kolom baru, mengubah nama tabel, atau membuat indeks baru dengan cara yang terkelola dan dapat direplikasi dengan mudah.
 
-Goose adalah sebuah alat yang membantu dalam mengelola migrasi database dengan mudah dan efisien, terutama dalam proyek yang menggunakan bahasa pemrograman Go. Dalam artikel ini, kita akan membahas penggunaan Goose untuk melakukan migrasi database dalam proyek Go.
+Goose adalah sebuah alat yang membantu dalam mengelola migration database dengan mudah dan efisien, terutama dalam proyek yang menggunakan bahasa pemrograman Go. Dalam artikel ini, kita akan membahas penggunaan Goose untuk melakukan migration database dalam proyek Go.
 
-Apa itu Goose?
+**Apa itu Goose?**
 
-Goose adalah sebuah alat yang terinspirasi dari alat migrasi database Rails, yaitu ActiveRecord. Ini memungkinkan pengembang untuk mendefinisikan migrasi database sebagai file Go yang dapat dijalankan untuk memperbarui skema database. Goose menyediakan alat bantu yang efektif untuk melakukan perubahan struktural pada database dengan aman.
+Goose adalah sebuah alat yang terinspirasi dari alat migration database Rails, yaitu ActiveRecord. Ini memungkinkan developer untuk mendefinisikan migration database sebagai file Go yang dapat dijalankan untuk memperbarui schema database. Goose menyediakan alat bantu yang efektif untuk melakukan perubahan struktural pada database dengan aman.
 
 ## **Langkah 1: Install Goose**
 
@@ -170,10 +170,10 @@ Penjelasan terkait script `main.go` diatas:
 
 1. Pertama-tama, kita memperoleh koneksi database dengan memanggil fungsi `SQLDBConn()` dari package `config`.
 2. Selanjutnya, kita memanggil fungsi `goose.SetDialect("mysql")` untuk menetapkan dialek SQL yang digunakan, dalam hal ini MySQL.
-3. Kemudian, kita melakukan migrasi database ke versi terbaru menggunakan fungsi `goose.Up(sqlDB, "migrations")`. Fungsi ini akan mencari file migrasi di direktori "migrations" dan menjalankan migrasi tersebut untuk membawa database ke versi terbaru.
-4. Pilihan lain adalah melakukan rollback migrasi menggunakan `goose.Down(sqlDB, "migrations")`.
+3. Kemudian, kita melakukan migration database ke versi terbaru menggunakan fungsi `goose.Up(sqlDB, "migrations")`. Fungsi ini akan mencari file migration di direktori "migrations" dan menjalankan migration tersebut untuk membawa database ke versi terbaru.
+4. Pilihan lain adalah melakukan rollback migration menggunakan `goose.Down(sqlDB, "migrations")`.
 
-Secara keseluruhan, script diatas bertujuan untuk menjalankan migrasi database ke versi terbaru menggunakan package `goose`, dengan memanfaatkan koneksi database yang telah dikonfigurasi sebelumnya.
+Secara keseluruhan, script diatas bertujuan untuk menjalankan migration database ke versi terbaru menggunakan package `goose`, dengan memanfaatkan koneksi database yang telah dikonfigurasi sebelumnya.
 
 Setelah kita melakukan inisialisasi awal untuk migration menggunakan goose, maka diharapkan struktur folder akan seperti ini.
 
@@ -187,13 +187,13 @@ goose-migration
 
 ## **Langkah 3: Membuat file migration**
 
-Gunakan perintah `goose` untuk membuat file migrasi baru:
+Gunakan perintah `goose` untuk membuat file migration baru:
 
 ```bash
 goose -dir migrations create create_users_table sql
 ```
 
-Copy query migrasi ini;
+Copy query migration ini:
 
 ```sql
 -- +goose Up
@@ -220,9 +220,9 @@ DROP TABLE users;
 -- +goose StatementEnd
 ```
 
-Ketika menjalankan migrasi untuk menaikkan versi skema dan rollback kembali, dapat dipisahkan dengan pernyataan `+goose Up` dan `+goose Down`.
+Ketika menjalankan migration untuk menaikkan versi schema dan rollback kembali, dapat dipisahkan dengan pernyataan `+goose Up` dan `+goose Down`.
 
-Kita juga dapat menjalankan lebih dari satu query SQL saat melakukan migrasi up, dengan memisahkannya menggunakan `StatementBegin` dan mengakhiri dengan `StatementEnd`, begitu juga sama pada migrasi rollback. Pada script di atas, kita melakukan dua eksekusi query. Yang pertama adalah untuk membuat tabel "users", sementara yang kedua adalah untuk menyisipkan data user ke dalam tabel "users".
+Kita juga dapat menjalankan lebih dari satu query SQL saat melakukan migration up, dengan memisahkannya menggunakan `StatementBegin` dan mengakhiri dengan `StatementEnd`, begitu juga sama pada migration rollback. Pada script di atas, kita melakukan dua eksekusi query. Yang pertama adalah untuk membuat tabel "users", sementara yang kedua adalah untuk menyisipkan data user ke dalam tabel "users".
 
 ## **Langkah 4: Menjalankan Migration**
 
@@ -241,8 +241,10 @@ Maka jika berhasil outputnya akan seperti ini.
 
 ## **Kesimpulan**
 
-Membuat skrip fungsi untuk menjalankan migrasi bertujuan untuk memudahkan konfigurasi koneksi yang kita miliki, dalam hal ini yang telah kita buat adalah dalam file `main.go`.
+Membuat script fungsi untuk menjalankan migration bertujuan untuk memudahkan konfigurasi koneksi database yang kita miliki, dalam hal ini yang telah kita buat adalah dalam file `main.go`.
 
-Goose adalah alat migrasi database yang bermanfaat dalam pengembangan aplikasi berbasis Golang. Dengan menggunakan Goose, developer dapat mengelola perubahan skema database dengan lebih terstruktur dan mudah diikuti. Ini membantu memastikan integritas data dan kompatibilitas aplikasi seiring waktu.
+Goose adalah alat migration database yang bermanfaat dalam pengembangan aplikasi berbasis Golang. Dengan menggunakan Goose, developer dapat mengelola perubahan schema database dengan lebih terstruktur dan mudah diikuti. Ini membantu memastikan integritas data dan kompatibilitas aplikasi seiring waktu.
 
-Dengan mengikuti langkah-langkah di atas, Anda dapat mulai menggunakan Goose dalam proyek Golang Anda untuk mengelola perubahan skema database dengan efisien. Selamat mencoba!
+Dengan mengikuti langkah-langkah di atas, Anda dapat mulai menggunakan Goose dalam proyek Golang Anda untuk mengelola perubahan schema database dengan efisien. Selamat mencoba!
+
+Check full source code disini: [dinobaggio/goose-migration](https://github.com/dinobaggio/goose-migration)
